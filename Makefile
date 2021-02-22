@@ -11,7 +11,7 @@ black:
 	@black scripts/* omerstoolbox/*.py
 
 test:
-	@coverage run -m pytest tests/*.py
+	@coverage run -m pytest tests/test_*.py
 	@coverage report -m --omit="${VIRTUAL_ENV}/lib/python*"
 
 ftest:
@@ -31,7 +31,7 @@ install:
 all: clean install test black check_code
 
 
-uninstal:
+uninstall:
 	@python setup.py install --record files.txt
 	@cat files.txt | xargs rm -rf
 	@rm -f files.txt
